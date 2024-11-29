@@ -19,7 +19,7 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" aria-current="page" href="#!">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
                     </ul>
                 </div>
@@ -36,44 +36,48 @@
                     <!-- <a class="btn btn-primary" href="#!">Call to Action!</a> -->
                 </div>
             </div>
-            <!-- Call to Action-->
-            <div class="card text-white bg-secondary my-5 py-4 text-center">
-                <div class="card-body"><p class="text-white m-0">Timer</p></div>
-            </div>
+            
             <!-- Content Row-->
             <div class="row gx-4 gx-lg-5">
                 <div class="col-md-4 mb-5">
                     <div class="card h-100">
-                        <div class="card-body">
+                        <div class="card-body text-center">
                             <h2 class="card-title">Answer 1/Option A</h2>
                             <p class="card-text">Potential Answer</p>
                         </div>
-                        <div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">Choice</a></div>
+                        <div class="card-footer text-center"><a class="btn btn-primary btn-sm" href="#!" id="A">Choice</a></div>
                     </div>
                 </div>
                 <div class="col-md-4 mb-5">
                     <div class="card h-100">
-                        <div class="card-body">
+                        <div class="card-body text-center">
                             <h2 class="card-title">Answer 2/Option B</h2>
                             <p class="card-text">Potential Answer</p>
                         </div>
-                        <div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">Choice</a></div>
+                        <div class="card-footer text-center"><a class="btn btn-primary btn-sm" href="#!" id="B">Choice</a></div>
                     </div>
                 </div>
                 <div class="col-md-4 mb-5">
                     <div class="card h-100">
-                        <div class="card-body">
+                        <div class="card-body text-center">
                             <h2 class="card-title">Answer 3/Option C</h2>
                             <p class="card-text">Potential Answer</p>
                         </div>
-                        <div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">Choice</a></div>
+                        <div class="card-footer text-center"><a class="btn btn-primary btn-sm" href="#!" id="C">Choice</a></div>
                     </div>
                 </div>
+            </div>
+            
+            <div class="card text-white bg-secondary mb-5 text-center col-1 mx-auto">
+                <div class="card-body p-0" id="timer"><h1 class="font-weight-light text-white">60</h1></div>
             </div>
         </div>
         <!-- Footer-->
         <footer class="py-5 bg-dark">
-            <div class="container px-4 px-lg-5"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2023</p></div>
+            <div class="container px-4 px-lg-5">
+                <p class="m-0 text-center text-white">Sheldon Jacque & Steven Loveys</p>
+                <p class="m-0 text-center text-white">Autumn 2024</p>
+            </div>
         </footer>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
