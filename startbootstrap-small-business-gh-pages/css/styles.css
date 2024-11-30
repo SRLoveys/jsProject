@@ -10910,3 +10910,9 @@ textarea.form-control-lg {
   box-shadow: darkred 0 3px 7px inset;
   transform: translateY(2px);
 }
+
+#main_image {
+  width: 900px;
+  height: 400px;
+  object-fit: cover;
+}

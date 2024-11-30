@@ -29,13 +29,25 @@
         <div class="container px-4 px-lg-5">
             <!-- Heading Row-->
             <div class="row gx-4 gx-lg-5 align-items-center my-5">
-                <div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0" src="https://dummyimage.com/900x400/dee2e6/6c757d.jpg" alt="..." /></div>
+                <div class="col-lg-7"><img id="main_image" class="img-fluid rounded mb-4 mb-lg-0" src="../images/imageH.jpg" alt="..." /></div>
                 <div class="col-lg-5">
                     <h1 class="font-weight-light" id="question">Question 1</h1>
                     <p>What does H mean in bowling?</p>
                     <!-- <a class="btn btn-primary" href="#!">Call to Action!</a> -->
                 </div>
             </div>
+            <!-- Images-->
+             <ul id="image_list" style="list-style: none;">
+                <li><a href="../images/imageH.jpg"></a></li>
+                <li><a href="../images/imageL.jpg"></a></li>
+                <li><a href="../images/imageR.jpg"></a></li>
+                <li><a href="../images/imageC.jpg"></a></li>
+                <li><a href="../images/imageA.jpg"></a></li>
+                <li><a href="../images/imageS.jpg"></a></li>
+                <li><a href="../images/imageTurkey.jpg"></a></li>
+                <li><a href="../images/imagePerfect.jpg"></a></li>
+                <li><a href="../images/imageFoul.jpg"></a></li>
+             </ul>
             
             <!-- Content Row-->
             <div class="row gx-4 gx-lg-5">
@@ -43,7 +55,7 @@
                     <div class="card h-100">
                         <div class="card-body text-center">
                             <h2 class="card-title" id="optA">Answer 1/Option A</h2>
-                            <p class="card-text">Potential Answer</p>
+                            <p id="wrongChoice1" class="card-text">Potential Answer</p>
                         </div>
                         <div class="card-footer text-center"><button class="button" id="A">Option A</button></div>
                     </div>
@@ -52,7 +64,7 @@
                     <div class="card h-100">
                         <div class="card-body text-center">
                             <h2 class="card-title" id="optB">Answer 2/Option B</h2>
-                            <p class="card-text">Potential Answer</p>
+                            <p id="wrongChoice2" class="card-text">Potential Answer</p>
                         </div>
                         <div class="card-footer text-center"><button class="button" id="B">Option B</button></div>
                     </div>
@@ -61,7 +73,7 @@
                     <div class="card h-100">
                         <div class="card-body text-center">
                             <h2 class="card-title" id="optC">Answer 3/Option C</h2>
-                            <p class="card-text">Q1 Answer</p>
+                            <p id="wrongChoice3" class="card-text">Q1 Answer</p>
                         </div>
                         <div class="card-footer text-center"><button class="button" id="C">Option C</button></div>
                     </div>
