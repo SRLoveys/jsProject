@@ -10836,7 +10836,6 @@ textarea.form-control-lg {
   color: #36395A;
   cursor: pointer;
   display: inline-flex;
-  font-family: "JetBrains Mono",monospace;
   height: 48px;
   justify-content: center;
   line-height: 1;
@@ -10870,3 +10869,44 @@ textarea.form-control-lg {
   transform: translateY(2px);
 }
 
+.button.correct {
+  background-color: lime;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,green 0 -3px 0 inset
+}
+
+.button.correct:focus {
+  box-shadow: green 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, green 0 -3px 0 inset;
+}
+
+.button.correct:hover {
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, green 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+.button.correct:active {
+  background-color: lime;
+  box-shadow: green 0 3px 7px inset;
+  transform: translateY(2px);
+}
+
+
+
+.button.incorrect {
+  background-color: red;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,darkred 0 -3px 0 inset
+}
+
+.button.incorrect:focus {
+  box-shadow: darkred 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, darkred 0 -3px 0 inset;
+}
+
+.button.incorrect:hover {
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, darkred 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+.button.incorrect:active {
+  background-color: red;
+  box-shadow: darkred 0 3px 7px inset;
+  transform: translateY(2px);
+}
