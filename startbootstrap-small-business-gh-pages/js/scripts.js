@@ -18,7 +18,7 @@ let imageCounter = 0;
 
 const questionBank = [
     "What does the letter H mean for scoring in bowling?",
-    "What does the letter L mean for socring in bowling?",
+    "What does the letter L mean for scoring in bowling?",
     "What does the letter R mean for scoring in bowling?",
     "What does the letter C mean for scoring in bowling?",
     "What does the letter A mean for scoring in bowling?",
@@ -119,30 +119,30 @@ const nextQuestion = () => {
 
         for (let option of options) {
             if (option.getAttribute("id") == `opt${answer}`) {
-                option.nextElementSibling.textContent = answerBank[questionNum]
+                option.textContent = answerBank[questionNum]
             } else {
                 if (answer === "A") {
                     if (option.getAttribute("id") == "optB") {
-                        $("#wrongChoice2").textContent = incorrectAnswerBank1[questionNum];
+                        option.textContent = incorrectAnswerBank1[questionNum];
                     } else if (option.getAttribute("id") == "optC") {
-                        $("#wrongChoice3").textContent = incorrectAnswerBank2[questionNum];
+                        option.textContent = incorrectAnswerBank2[questionNum];
                     }
                 } else if (answer === "B") {
                     if (option.getAttribute("id") == "optA") {
-                        $("#wrongChoice1").textContent = incorrectAnswerBank1[questionNum];
+                        option.textContent = incorrectAnswerBank1[questionNum];
                     } else if (option.getAttribute("id") == "optC") {
-                        $("#wrongChoice3").textContent = incorrectAnswerBank2[questionNum];
+                        option.textContent = incorrectAnswerBank2[questionNum];
                     }
                 } else if (answer === "C") {
                     if (option.getAttribute("id") == "optA") {
-                        $("#wrongChoice1").textContent = incorrectAnswerBank1[questionNum];
+                        option.textContent = incorrectAnswerBank1[questionNum];
                     } else if (option.getAttribute("id") == "optB") {
-                        $("#wrongChoice2").textContent = incorrectAnswerBank2[questionNum];
+                        option.textContent = incorrectAnswerBank2[questionNum];
                     }
                 }
             }
         };
-        $(`#opt${answer}`).nextElementSibling.textContent = answerBank[questionNum];
+        $(`#opt${answer}`).textContent = answerBank[questionNum];
         console.log(score)
     } else {document.location.href = "../startbootstrap-full-width-pics-gh-pages/index.html"}
     
