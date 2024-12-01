@@ -22,10 +22,11 @@ const questionBank = [
     "What does the letter R mean for scoring in bowling?",
     "What does the letter C mean for scoring in bowling?",
     "What does the letter A mean for scoring in bowling?",
-    "what does the letter S mean for scoring in bowling?",
+    "What does the letter S mean for scoring in bowling?",
     "What does a Turkey mean in bowling?",
     "What is a Perfect Game score in bowling?",
-    "What does the Foul Line do in bowling?"
+    "What does the Foul Line do in bowling?",
+    "What is the added value of all the pins?"
 ]
 const answerBank = [
     "Headpin",
@@ -37,10 +38,10 @@ const answerBank = [
     "Three Strikes In A Row",
     "450",
     "Makes loud noise and reduces score by 15",
-    "Q10 Answer"
+    "15"
 ]
 const incorrectAnswerBank1 = [
-    "",
+    "Hook",
     "Left Side", 
     "Right Side", 
     "Cut-off",
@@ -49,11 +50,11 @@ const incorrectAnswerBank1 = [
     "Two Strikes In A Row",
     "300",
     "Negates Your Last Shot",
-    "Incorrect answer for A9"
+    "10"
 ]
 
 const incorrectAnswerBank2 = [
-    "",
+    "Hambone",
     "Left Hook", 
     "Right Hook", 
     "Clip",
@@ -62,10 +63,12 @@ const incorrectAnswerBank2 = [
     "Four Strikes In A Row",
     "400",
     "Removes You From The Game",
-    "Incorrect answer for A9"
+    "20"
 ]
 
 const answerKey = ["C", "B", "B", "A", "B", "C", "A", "C", "C", "B"];
+
+let usedNumbers = [];
 
 let timer = null;
 let clock = null;
@@ -94,10 +97,29 @@ const userChoice = evt => {
     }, 1500);
 }
 
+const randomQuestion = () => {
+    let randomNumbers = null;
+
+    do {
+        randomNumbers = Math.floor(Math.random() * questionBank.length);
+    } while(usedNumbers.includes(randomNumbers) && usedNumbers.length < questionBank.length);
+
+    if (usedNumbers.length >= questionBank.length) {
+        return null;
+    }
+
+    usedNumbers[usedNumbers.length] = randomNumbers;
+
+    return randomNumbers;
+}
+
 const nextQuestion = () => {
-    questionNum += 1;
-    imageCounter = (imageCounter + 1) % imageArray.length;
-    const image = imageArray[imageCounter];
+    questionNum = randomQuestion();
+    if (questionNum == null) {
+        document.location.href = "../startbootstrap-full-width-pics-gh-pages/index.html"
+    }
+
+    const image = imageArray[questionNum];
     mainImage.src = image.src;
 
     if (image.src.endsWith("imagePerfect.jpg")) {
@@ -144,7 +166,7 @@ const nextQuestion = () => {
         };
         $(`#opt${answer}`).textContent = answerBank[questionNum];
         console.log(score)
-    } else {document.location.href = "../startbootstrap-full-width-pics-gh-pages/index.html"}
+    };
     
 };
 
@@ -164,7 +186,7 @@ document.addEventListener("DOMContentLoaded", () => {
         imageArray[imageArray.length] = image;
     }
 
-
+    nextQuestion();
     $("#A").addEventListener("click", userChoice);
     $("#B").addEventListener("click", userChoice);
     $("#C").addEventListener("click", userChoice);
