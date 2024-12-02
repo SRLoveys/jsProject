@@ -12,6 +12,6 @@ const $ = (selector) => document.querySelector(selector);
 document.addEventListener("DOMContentLoaded", () => {
     $("#aboutPage").addEventListener("click", evt => {
         evt.preventDefault();
-        alert("Tester")
+        alert("Bowling Trivia website by Sheldon Jacque and Steven Loveys for a JavaScript Project, Goodluck!")
     })
 })

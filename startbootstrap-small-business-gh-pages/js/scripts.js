@@ -10,6 +10,7 @@
 const $ = (selector) => document.querySelector(selector);
 
 let score = 0;
+let totalTime = 0;
 let questionNum = 0;
 let answer = "C";
 let mainImage = $("#main_image");
@@ -80,6 +81,7 @@ const userChoice = evt => {
         thisElement.setAttribute("class", "button correct");
         thisElement.setAttribute("disabled", "true");
         score += 1;
+        localStorage.setItem("totalScore", score);
     } else {thisElement.setAttribute("class", "button incorrect")}
     
     const buttons = document.getElementsByClassName("button");
@@ -87,14 +89,14 @@ const userChoice = evt => {
         button.setAttribute("disabled", "true");
     };
 
-    setTimeout(nextQuestion, 1500);
+    setTimeout(nextQuestion, 1000);
     setTimeout(() => {
         for( let button of buttons) {
             button.removeAttribute("disabled");
         }
         thisElement.removeAttribute("disabled");
         thisElement.setAttribute("class", "button");
-    }, 1500);
+    }, 1000);
 }
 
 const randomQuestion = () => {
@@ -176,7 +178,8 @@ const nextQuestion = () => {
 const clock = () => {
     countdown = setInterval(() => {
         $("#timer").textContent -= 1;
-
+        totalTime += 1;
+        localStorage.setItem("totalTime", totalTime);
         if ($("#timer").textContent == -1) {
             
             clearInterval(countdown);
@@ -190,7 +193,7 @@ const clock = () => {
 document.addEventListener("DOMContentLoaded", () => {
     $("#aboutPage").addEventListener("click", evt => {
         evt.preventDefault();
-        alert("Tester")
+        alert("Bowling Trivia website by Sheldon Jacque and Steven Loveys for a JavaScript Project, Goodluck!")
     });
 
     const links = $("#image_list").querySelectorAll("a");
