@@ -15,6 +15,7 @@ let answer = "C";
 let mainImage = $("#main_image");
 let imageArray = [];
 let imageCounter = 0;
+let question = 1;
 
 const questionBank = [
     "What does the letter H mean for scoring in bowling?",
@@ -70,8 +71,7 @@ const answerKey = ["C", "B", "B", "A", "B", "C", "A", "C", "C", "B"];
 
 let usedNumbers = [];
 
-let timer = null;
-let clock = null;
+let countdown = null;
 
 const userChoice = evt => {
     const thisElement = evt.currentTarget;
@@ -115,6 +115,9 @@ const randomQuestion = () => {
 
 const nextQuestion = () => {
     questionNum = randomQuestion();
+    clearInterval(countdown);
+    clock();
+    $("#timer").textContent = 10;
     if (questionNum == null) {
         document.location.href = "../startbootstrap-full-width-pics-gh-pages/index.html"
     }
@@ -133,7 +136,7 @@ const nextQuestion = () => {
     }
 
     if (questionNum <= questionBank.length-1){
-        $("#question").textContent = `Question ${questionNum+1}`;
+        $("#question").textContent = `Question ${question}`;
         $("#question").nextElementSibling.textContent = questionBank[questionNum];
         answer = answerKey[questionNum];
     
@@ -165,12 +168,24 @@ const nextQuestion = () => {
             }
         };
         $(`#opt${answer}`).textContent = answerBank[questionNum];
-        console.log(score)
+
     };
-    
+    question += 1;
 };
 
-// TODO add a timer that proceeds to the next question after 30 seconds.
+const clock = () => {
+    countdown = setInterval(() => {
+        $("#timer").textContent -= 1;
+
+        if ($("#timer").textContent == -1) {
+            
+            clearInterval(countdown);
+            countdown = null;
+            nextQuestion();
+
+        }
+    }, 1000);
+};
 
 document.addEventListener("DOMContentLoaded", () => {
     $("#aboutPage").addEventListener("click", evt => {
