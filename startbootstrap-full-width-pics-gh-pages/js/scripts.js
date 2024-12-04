@@ -9,11 +9,33 @@
 
 const $ = (selector) => document.querySelector(selector);
 
-const score = localStorage.getItem("totalScore");
-let time = parseInt(localStorage.getItem("totalTime"));
-let minutes = 0;
-let message = "";
-let finalImage = $("#finalImage")
+let getScore = () => parseInt(localStorage.getItem("totalScore")) || 0;
+let getTime = () => parseInt(localStorage.getItem("totalTime"));
+
+const formatTime = (totalSeconds) => {
+    let minutes = Math.floor(totalSeconds / 60);
+    let seconds = totalSeconds % 60;
+    return {minutes, seconds};
+};
+
+const finalImageAndMessage = (score) => {
+    const finalImage = $("#finalImage")
+    const finalMessage = $("#finalMessage")
+
+    if (score <= 5) {
+        finalMessage.textContent = "Better luck next time!"
+        finalImage.src = "../images/gutterGif.gif"
+    } else if (score == 6 || score <= 7) {
+        finalMessage.textContent = "Good Job!"
+        finalImage.src = "../images/sixtySeventyGif.gif"
+    } else if (score == 8 || score == 9) {
+        finalMessage.textContent = "Amazing!"
+        finalImage.src = "../images/soCloseGif.gif"
+    } else {
+        finalMessage.textContent = "PERFECT SCORE!"
+        finalImage.src = "../images/strikeGif.gif"
+    }
+};
 
 document.addEventListener("DOMContentLoaded", () => {
     $("#aboutPage").addEventListener("click", evt => {
@@ -21,24 +43,16 @@ document.addEventListener("DOMContentLoaded", () => {
         alert("Bowling Trivia website by Sheldon Jacque and Steven Loveys for a JavaScript Project, Goodluck!")
     })
 
-    if (time >= 60) {
-        minutes += 1
-        time -= 60
-    }
+    let score = getScore();
+    console.log(score);
+    console.log(localStorage.getItem("totalScore"));
+    let totalSeconds = getTime();
+    let time = formatTime(totalSeconds);
 
-    if (score <= 5) {
-        message = "Better luck next time!"
-        finalImage.src = "../images/gutterGif.gif"
-    } else if (score == 6 || score <= 7) {
-        message = "Good Job!"
-    } else if (score == 8 || score == 9) {
-        message = "Amazing!"
-        finalImage.src = "../images/soCloseGif.gif"
-    } else {
-        message = "PERFECT SCORE!"
-        finalImage.src = "../images/strikeGif.gif"
-    }
-let percentScore = score * 10;
+    finalImageAndMessage(score);
 
-    $("#scoreParagraph").textContent = `You got ${score}/10 (${percentScore}%) correct in ${minutes} minutes and ${time} seconds, ${message}`
+    let percentScore = score * 10;
+
+    $("#scoreParagraph").textContent = `You got ${score}/10 (${percentScore}%) correct in ${time.minutes} minute and ${time.seconds} seconds.`
+    localStorage.setItem("totalScore", "0");
 })
