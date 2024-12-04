@@ -80,9 +80,14 @@ const userChoice = evt => {
     if (thisElement.getAttribute("id") == answer) {
         thisElement.setAttribute("class", "button correct");
         thisElement.setAttribute("disabled", "true");
+        document.getElementById("correctAudio").play();
         score += 1;
         localStorage.setItem("totalScore", score);
-    } else {thisElement.setAttribute("class", "button incorrect")}
+    } 
+    else {
+        thisElement.setAttribute("class", "button incorrect");
+        document.getElementById("incorrectAudio").play();
+    }
     
     const buttons = document.getElementsByClassName("button");
     for (let button of buttons) {
