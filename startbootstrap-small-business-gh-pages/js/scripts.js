@@ -189,6 +189,7 @@ const clock = () => {
             
             clearInterval(countdown);
             countdown = null;
+            alert("You have run out of Time!");
             nextQuestion();
 
         }
