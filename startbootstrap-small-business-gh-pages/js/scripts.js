@@ -189,6 +189,7 @@ const clock = () => {
             
             clearInterval(countdown);
             countdown = null;
+            document.getElementById("incorrectAudio").play();
             alert("You have run out of Time!");
             nextQuestion();
 
